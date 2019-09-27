@@ -6,7 +6,7 @@ mongoose.connection.on("error", function(e) { console.error(e); });
 
 var schema = mongoose.Schema({
     name: { type: String, default: "Anónimo" },
-    price: { type: String, default: "Anónimo" },
+    price: { type: Number, default: "Anónimo" },
 })
 
 var Products = mongoose.model("Productos", schema);
