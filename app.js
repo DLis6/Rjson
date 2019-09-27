@@ -5,9 +5,9 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/mongo-1',
 mongoose.connection.on("error", function(e) { console.error(e); });
 
 var schema = mongoose.Schema({
-    name: { type: String },
-    price: { type: Number }
-})
+    name: String,
+    price: Number
+});
 
 var Products = mongoose.model("Productos", schema);
 
