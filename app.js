@@ -9,8 +9,7 @@ var schema = mongoose.Schema({
     price: Number,
 });
 
-var Products = mongoose.model("Productos", schema);
-
+var Products = mongoose.model("Products", schema);
 
 app.get('/products', async(req, res) => { //Muestra constendo json de los libros.
 
