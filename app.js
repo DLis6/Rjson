@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 var mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/mongo-1', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/products', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on("error", function(e) { console.error(e); });
 
 var schema = mongoose.Schema({
