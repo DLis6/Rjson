@@ -6,7 +6,7 @@ mongoose.connection.on("error", function(e) { console.error(e); });
 
 var schema = mongoose.Schema({
     name: { type: String, default: "Anónimo" },
-    price: { type: Number, default: "Anónimo" },
+    price: { type: Number },
 })
 
 var Products = mongoose.model("Productos", schema);
@@ -14,8 +14,11 @@ var Products = mongoose.model("Productos", schema);
 
 app.get('/products', async(req, res) => { //Muestra constendo json de los libros.
 
-    var info = await Products.find({}).exec();
+    await Products.create({ name: "Miserables", price: 40000 }, function(err) {
+        if (err) return console.error(err);
+    });
 
+    var info = await Products.find({}).exec();
     res.json(info);
 });
 
