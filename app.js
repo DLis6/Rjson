@@ -14,10 +14,6 @@ var Products = mongoose.model("Productos", schema);
 
 app.get('/products', async(req, res) => { //Muestra constendo json de los libros.
 
-    await Products.create({ name: "Miserables", price: 40000 }, function(err) {
-        if (err) return console.error(err);
-    });
-
     var info = await Products.find({}).exec();
     res.json(info);
 });
